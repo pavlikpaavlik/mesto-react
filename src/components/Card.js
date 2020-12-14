@@ -7,7 +7,7 @@ function Card(props) {
       } 
 
     return(
-        <li key={cardData.id} className="grid-element">
+        <li className="grid-element">
             <img src = {cardData.link} alt={cardData.name} className="grid-element__photo" onClick={handleClick} />
             <div className="grid-element__info">
                 <h3 className="grid-element__title">{cardData.name}</h3>

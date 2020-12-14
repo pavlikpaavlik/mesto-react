@@ -4,24 +4,8 @@ import Main from './Main'
 import Footer from './Footer'
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import api from '../utils/api'
 
 function App() {
-
-  const [cards, setCards] = React.useState([])
-
-React.useEffect(()=>{
-    const infoCards = api.getInitialCards()
-        infoCards
-        .then((data)=>{
-            setCards(data)
-
-        })
-        .catch((err)=>{
-          console.log(err)
-      })
-
-}, [])
 
 const [isEditProfilePopupOpen, setProfilePopupOpen] = React.useState(false)
 
@@ -55,8 +39,8 @@ function closeAllPopups() {
 }
 
 return (
-  <div class="root">
-    <div class="page">
+  <div className="root">
+    <div className="page">
     <Header/>
     <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} />
     <Footer/>
