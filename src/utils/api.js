@@ -114,4 +114,4 @@ export class Api {
   }
   )
   
-  export default api 
+  export default api;
