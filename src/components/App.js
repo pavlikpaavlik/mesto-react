@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header'
-import Main from './Main'
-import Footer from './Footer'
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import EditProfilePopup from './EditProfilePopup';
@@ -38,7 +38,7 @@ function App() {
       .catch((err)=>{
           console.log(err)
       })
-  })
+  }, [])
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -79,10 +79,7 @@ function App() {
   function handleUpdateUser(data) {
     api.setUserProfile(data)
     .then((res)=>{
-      setCurrentUser({
-        name: res.name,
-        about: res.about,
-      })
+      setCurrentUser(res)
       closeAllPopups();
       })
       .catch((err)=>{
@@ -93,9 +90,7 @@ function App() {
   function handleUpdateAvatar(data){
     api.newAvatar(data)
     .then((res) =>{
-      setCurrentUser({
-        avatar: res.avatar,
-      })
+      setCurrentUser(res)
       closeAllPopups()
     })
     .catch((err)=>{
